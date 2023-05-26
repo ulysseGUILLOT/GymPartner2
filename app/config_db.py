@@ -1,4 +1,8 @@
 import os
+from flask_sqlalchemy import SQLAlchemy
+
+
+db = SQLAlchemy()
 
 
 def config_db(app):
@@ -11,6 +15,7 @@ def config_db(app):
 
     # Création de la chaine de caractère de connexion sql
     db_info = 'mysql+pymysql://' + db_user + ':' + db_password + '@' + db_host + ':' + db_port + '/' + db_name
+    print(db_info)
 
     # Configuration des paramètres de connexion de la DB
     app.config["SQLALCHEMY_DATABASE_URI"] = db_info
